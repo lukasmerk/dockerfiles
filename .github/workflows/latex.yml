@@ -5,8 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    working-directory: latex
     steps:
-      uses: actions/checkout@v2
-      name: Build the Docker image
-      working-directory: latex
+      # uses: actions/checkout@v2
+      # name: Build the Docker image
       run: docker build . --file Dockerfile --tag lukasmerk/latex:latest

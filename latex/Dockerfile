@@ -1,7 +1,10 @@
-FROM debian:buster-slim
+FROM ubuntu:latest
+ARG DEBIAN_FRONTEND=noninteractive
+ARG TZ=Europe/Berlin
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get update && apt-get install -y biber latexmk make texlive-full python-pygments
+RUN apt-get install -y biber latexmk make texlive-full
+RUN apt-get update && apt-get install -y python-pygments
 RUN apt autoremove && apt autoclean && rm -rf /var/lib/apt/lists/*
 
 
